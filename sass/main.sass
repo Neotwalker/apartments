@@ -1,0 +1,444 @@
+@use 'sass:math'
+@use 'sass:color'
+
+@import "fonts"
+@import "libs"
+@import "vars"
+
+*
+	-webkit-box-sizing: border-box
+	-moz-box-sizing: border-box
+	box-sizing: border-box
+	margin: 0
+	padding: 0
+	&:before, &:after
+		-webkit-box-sizing: border-box
+		-moz-box-sizing: border-box
+		box-sizing: border-box
+
+*::-webkit-input-placeholder
+	color: #666
+	opacity: 1
+
+*:-moz-placeholder
+	color: #666
+	opacity: 1
+
+*::-moz-placeholder
+	color: #666
+	opacity: 1
+
+*:-ms-input-placeholder
+	color: #666
+	opacity: 1
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: #666
+body input:required:valid,
+body textarea:required:valid
+	color: #666
+
+html, body
+	height: 100%
+	background-color: #fff
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1
+	font-family: $default-font
+	overflow-x: hidden
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+
+.text-center
+	text-align: center
+
+::selection
+	background-color: $accent
+	color: $white
+
+.h1, .h2, .h3, .h4, .h5, .h6
+	line-height: 1.4
+
+.logo
+	img
+		width: 115px
+		height: auto
+
+img
+	max-width: 100%
+	height: auto
+
+section, header
+	position: relative
+	background-size: cover
+	background-position: center
+
+video, iframe
+	max-width: 100%
+	width: 100%
+	height: 100%
+	object-fit: cover
+
+ul, li, a
+	list-style-type: none
+	text-decoration: none
+	text-transform: initial
+
+button, textarea, input
+	font-family: $default-font
+
+a
+	color: $dark
+	&:hover
+		opacity: 0.8
+
+.button
+	display: inline-block
+	border: none
+	color: $white
+	text-decoration: none
+	background-color: $accent
+	padding: 10px
+	font-size: 14px
+	text-transform: initial
+	font-weight: 700
+	border-radius: 5px
+	text-align: center
+	position: relative
+	outline: none
+	transition: background-color .1s ease
+	cursor: pointer
+	&:focus, &:hover
+		text-decoration: none
+		color: $white
+	&:hover
+		background-color: lighten($accent, 5%)
+	&:active
+		background-color: darken($accent, 5%)
+	&--sign_in
+		background-color: #0468FF1A
+		color: $accent
+
+.main
+	&--wrapper
+		position: relative
+		display: flex
+		flex-direction: column
+		height: 100%
+		.content
+			flex: 1 0 auto
+
+section
+	&.title, &.regions
+		.container
+			max-width: 1915px
+			margin: 0 auto
+
+.container
+	max-width: 1440px
+	margin: 0 auto
+	.row
+		padding: 0 20px
+
+.header
+	padding-top: 15px
+	padding-bottom: 15px
+	background-color: $white
+	.container
+		max-width: 1915px
+		margin: 0 auto
+	&--wrapper
+		display: flex
+		align-items: center
+		gap: 10px
+		.logo
+			margin-right: 30px
+		.social
+			margin-left: auto
+
+.more
+	display: flex
+	align-items: center
+	gap: 20px
+	margin-left: auto
+	a
+		white-space: nowrap
+		display: flex
+		align-items: center
+		justify-content: center
+		img
+			width: 15px
+			height: auto
+
+.menu
+	.list
+		display: flex
+		gap: 20px
+		li
+			font-weight: 400
+			white-space: nowrap
+			font-size: 14px
+			transition: all .3s ease
+
+.title
+	margin-top: 15px
+	margin-bottom: 50px
+	&--image
+		background-size: cover
+		border-radius: 10px
+		height: 800px
+		background-repeat: no-repeat
+		.wrapper
+			display: flex
+			flex-direction: column
+			justify-content: center
+			align-items: center
+			height: 100%
+		.h1
+			font-weight: 400
+			font-size: 50px
+			text-align: center
+			line-height: 1
+			color: $white
+			margin-bottom: 50px
+			max-width: 415px
+		.buttons
+			display: flex
+			gap: 10px
+			margin-bottom: 40px
+			.button
+				background-color: $white
+				color: $dark
+				font-weight: 400
+				padding: 11px 24px
+				&.active
+					background-color: $dark
+					color: $white
+		.choice_apartment
+			display: flex
+			width: 100%
+			max-width: 1100px
+			button, input
+				cursor: pointer
+				border: none
+				padding: 20px 38px 20px 24px
+				background-color: #fff
+				width: 100%
+				overflow: hidden
+				white-space: nowrap
+				text-align: left
+				position: relative
+				&:focus
+					outline: none
+				&::after
+					content: ''
+					display: block
+					width: 1px
+					height: 30px
+					background-color: $dark
+					position: absolute
+					right: 0
+					top: 0
+					bottom: 0
+					margin: auto
+			.buy
+				width: 100%
+				min-width: 140px
+				max-width: 316px
+				border-top-left-radius: 8px
+				border-bottom-left-radius: 8px
+			.rooms, .price, .city
+				color: rgba(0, 0, 0, .5)
+			.city
+				border-top-right-radius: 8px
+				border-bottom-right-radius: 8px
+				&::after
+					display: none
+
+.regions
+	.row
+		margin: 0 -20px
+	.h2
+		font-weight: 400
+		font-size: 50px
+		margin-bottom: 50px
+		text-align: center
+	&--wrapper
+		display: flex
+		flex-wrap: nowrap
+		overflow-x: auto
+		overflow-y: hidden
+		width: 100%
+		gap: 15px
+		min-height: 400px
+		margin-bottom: 50px
+		.region
+			display: flex
+			flex-direction: column
+			gap: 15px
+			min-width: 300px
+			position: relative
+			.button
+				&.look
+					position: absolute
+					bottom: 15px
+					left: 10px
+					background-color: #EFEFEF
+					color: rgba(0,0,0,.5)
+					font-weight: 400
+					padding: 5px 11px
+			&--wrapper
+				background-color: #A8BAC7
+				min-height: 190px
+				border-radius: 10px
+				position: relative
+				.image
+					position: relative
+			.texts
+				max-width: 228px
+				position: absolute
+				top: 20px
+				left: 20px
+				color: $white
+				display: flex
+				flex-direction: column
+				gap: 25px
+
+.popular_ads
+	margin-bottom: 50px
+	.title
+		display: flex
+		gap: 40px
+		align-items: center
+		.h2
+			line-height: 1
+		.choice
+			.active
+				color: #3B4144
+	&--wrapper
+		display: flex
+		flex-wrap: wrap
+		gap: 30px 15px
+		.item
+			flex: 1 1 calc(25% - 15px)
+			max-width: calc(25% - 15px)
+			.image
+				width: 100%
+				background-size: cover
+				margin-bottom: 15px
+				width: 100%
+				border-radius: 10px
+				height: 190px
+				display: flex
+				padding: 13px
+				color: $dark
+				justify-content: space-between
+				align-items: flex-start
+				.new
+					color: $dark
+					font-size: 16px
+					background-color: #fff
+					padding: 5px 10px
+					border-radius: 5px
+				.icon.star
+					cursor: pointer
+					path
+						&:hover
+							fill: $white
+		.info
+			.h4
+				font-size: 20px
+				margin-bottom: 5px
+			.details
+				display: flex
+				flex-wrap: wrap
+				color: #3B4144
+				gap: 10px
+
+.journal
+	margin-bottom: 50px
+	.h2
+		margin-bottom: 20px
+	&--wrapper
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-between
+		gap: 0 30px
+		.articles
+			&:first-child
+				margin-bottom: 60px
+		.articles, .news
+			max-width: calc(60% - 30px)
+			width: 100%
+			display: flex
+			flex-wrap: wrap
+			gap: 0 30px
+			.image-main
+				flex: calc(40% - 30px)
+			.title
+				width: 100%
+				flex: 1 1 100%
+				margin: 0
+				font-size: 18px
+				margin-bottom: 20px
+			&--wrapper
+				display: flex
+				flex-direction: column
+				gap: 30px
+				flex: calc(60% - 30px)
+		.item
+			display: flex
+			gap: 10px
+			.texts
+				max-width: 375px
+				.h4
+					font-size: 18px
+					margin-bottom: 5px
+					line-height: 1.1
+			img
+				max-width: 125px
+		.news
+			margin-bottom: 60px
+			max-width: calc(40% - 30px)
+			width: 100%
+			.title
+				margin-bottom: 0
+		.notes
+			max-width: calc(33% - 30px)
+			margin-right: 20px
+			.title
+				display: inline-block
+				margin-bottom: 35px
+				font-size: 18px
+			&--wrapper
+				display: flex
+				flex-direction: column
+				gap: 30px
+
+.apartments
+	margin-bottom: 50px
+	&--wrapper
+		display: flex
+		flex-wrap: wrap
+		gap: 50px
+		.item
+			max-width: calc(25% - 50px)
+			flex: 1 1 calc(25% - 50px)
+			.h4
+				margin-bottom: 20px
+				font-size: 18px
+			&--wrapper
+				display: flex
+				flex-direction: column
+				gap: 10px
+				.city
+					font-size: 18px
+
+@import "media"
